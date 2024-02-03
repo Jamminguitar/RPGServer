@@ -8,7 +8,11 @@ project(
 
 set(sources ${sources} 
     src/main.cpp
-    libs/asio-1.28.0/include/asio.hpp
 )
 
+ADD_SUBDIRECTORY(libs)
 add_executable(rpg_server ${sources})
+TARGET_LINK_LIBRARIES(
+   rpg_server PRIVATE
+   asio
+)
